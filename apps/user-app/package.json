@@ -17,8 +17,10 @@
     "next": "^15.4.2",
     "next-auth": "^4.24.11",
     "postcss": "^8.5.6",
+    "razorpay": "^2.9.8",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "recoil": "^0.7.7",
     "tailwindcss": "^4.1.12"
   },
   "devDependencies": {

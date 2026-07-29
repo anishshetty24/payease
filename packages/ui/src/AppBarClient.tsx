@@ -1,16 +1,20 @@
-"use client"
+"use client";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { Appbar } from "./AppBar";
 import { useRouter } from "next/navigation";
-import clsx from "clsx";
 
 export function AppBarClient({ className }: { className?: string }) {
   const session = useSession();
   const router = useRouter();
 
+  const handleMenuToggle = () => {
+    // Dispatch custom event that the sidebar can listen to
+    window.dispatchEvent(new CustomEvent("toggle-sidebar"));
+  };
+
   return (
     <Appbar
-      className={clsx("bg-white shadow-md", className)} // ✅ merge base + external overrides
+      className={className}
       name={session.data?.user?.name}
       onSignin={signIn}
       onSignout={async () => {
@@ -18,6 +22,7 @@ export function AppBarClient({ className }: { className?: string }) {
         router.push("/api/auth/signin");
       }}
       user={session.data?.user}
+      onMenuToggle={handleMenuToggle}
     />
   );
 }
