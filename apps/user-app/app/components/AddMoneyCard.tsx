@@ -426,3 +426,4 @@ export function AddMoney({ onSuccess }: { onSuccess?: () => void }) {
     </>
   );
 }
+// CodeScope Milestone 14: PR review integration test
