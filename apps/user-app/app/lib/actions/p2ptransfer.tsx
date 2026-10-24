@@ -17,7 +17,7 @@ export async function p2pTransfer(to: string, amount: number) {
     return { message: "Invalid recipient number" };
   }
 
-  if (!amount || amount <= 0) {
+  if (!amount || amount <= 0 || !Number.isFinite(amount)) {
     return { message: "Invalid amount" };
   }
 
